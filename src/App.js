@@ -1,25 +1,37 @@
+// eslint-disable-next-line no-unused-vars
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import styled from 'styled-components';
+
+import GlobalStyle from './styles/GlobalStyle';
+import Header from './components/header/Header';
+import Main from './components/screens/Main';
+import Quiz from './components/screens/Quiz';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: 100vh;
+  width: 100%;
+
+  p {
+    margin: 12px;
+  }
+`;
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Container>
+        <GlobalStyle/>
+        <Header />
+        <Route exact path="/" component={Main} />
+        <Route path="/quiz" component={Quiz} />
+      </Container>
+    </Router>
   );
 }
 
