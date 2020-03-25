@@ -1,16 +1,20 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 const Container = styled.main`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  height: 40px;
+  width: 120px;
+  position: absolute;
+  left: 50%;
+  margin-left: -60px;
+  top: 50%;
+  margin-top: -20px;
 
-  height: 100%;
-  width: 100%;
+  button {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 export default function Quiz() {

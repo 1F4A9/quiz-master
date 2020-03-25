@@ -1,4 +1,3 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import styled from 'styled-components';
@@ -14,22 +13,17 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 
-  height: 100vh;
   width: 100%;
-
-  p {
-    margin: 12px;
-  }
 `;
 
 function App() {
   return (
     <Router>
       <Container>
-        <GlobalStyle/>
+        <GlobalStyle />
         <Header />
-        <Route exact path="/" component={Main} />
-        <Route path="/quiz" component={Quiz} />
+        <Route exact path="/" render={() => <Main/>} />
+        <Route path="/quiz" render={() => <Quiz/>} />
       </Container>
     </Router>
   );

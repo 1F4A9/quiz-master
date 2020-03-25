@@ -24,7 +24,7 @@ const Container = styled.header`
   }
 
   h2 {
-    margin: 0px 12px;
+    margin: 0rem 0rem 0rem -0.75rem;
   }
 `;
 
