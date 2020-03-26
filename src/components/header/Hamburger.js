@@ -1,6 +1,7 @@
-// eslint-disable-next-line no-unused-vars
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
+
+import ModalAsideMenu from '../modals/ModalAsideMenu';
 
 const Container = styled.div`
   margin-left: 0.75rem;
@@ -12,9 +13,18 @@ const Container = styled.div`
 `;
 
 export default function Hamburger() {
+  const [openModal, setOpenModal] = useState(false);
+
+  function handleModal(boolean) {
+    setOpenModal(boolean);
+  }
+    
   return (
     <Container>
-      <i className="fas fa-bars"></i>
+      <button onClick={() => handleModal(true)} aria-label="open aside menu">
+        <i className="fas fa-bars"> </i>
+      </button>
+      {openModal ? <ModalAsideMenu handleModal={handleModal} /> : null}
     </Container>
   )
 }

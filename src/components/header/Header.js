@@ -1,7 +1,8 @@
-// eslint-disable-next-line no-unused-vars
 import React from 'react';
 import styled from 'styled-components';
+import { useLocation } from 'react-router-dom';
 
+import { firstLetterCapital, substringFirstChar } from '../utilities';
 import Hamburger from './Hamburger';
 
 const Container = styled.header`
@@ -29,11 +30,19 @@ const Container = styled.header`
 `;
 
 export default function Header() {
+  let { pathname } = useLocation();
+
+  if (pathname === '/') {
+    pathname = 'Quiz Master';
+  } else {
+    pathname = firstLetterCapital(substringFirstChar(pathname));
+  }
+
   return (
     <Container>
       <Hamburger/>
       <div className="flex-container">
-        <h2>Quiz Master</h2>
+        <h2>{pathname}</h2>
       </div>
     </Container>
   )

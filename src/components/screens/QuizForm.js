@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import uniqid from 'uniqid';
 import he from 'he';
 import styled from 'styled-components';
 
@@ -21,29 +20,28 @@ const Container = styled.div`
   p {
     padding-top: 0.833rem;
   }
-
 `;
 
-export default function QuizForm({ questions }) {
+export default function QuizForm({ questions, handleSubmit }) {
   const [value, setValue] = useState({});
 
   function onSubmit(e) {
     e.preventDefault();
 
-    console.log(value)
-    console.log(questions)
+    let result = questions.filter((question, i) => he.decode(question.correct_answer) === value['Q' + (i + 1)]);
+
+    handleSubmit(result);
   }
 
   function onChange(e) {
-    let currentValue = {...value};
-    setValue({...currentValue, ...{[e.target.name]: e.target.value}});
+    setValue({...value, ...{[e.target.name]: e.target.value}});
   }
 
   return (
     <Container>
       <form onSubmit={onSubmit}>
         {questions.map((question, index) => {
-          return <div className="question" key={uniqid()}>
+          return <div className="question" key={index}>
             <p>
               {`Q${index + 1}. `}
               {he.decode(question.question)}

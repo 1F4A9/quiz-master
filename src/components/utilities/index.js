@@ -12,3 +12,12 @@ export function shuffle(array) {
 
   return array;
 }
+
+export function substringFirstChar(str) {
+  return str.substring(1);
+}
+
+export function firstLetterCapital(str) {
+  let newStr = str.toUpperCase().slice(0, 1) + str.slice(1);
+  return newStr;
+}

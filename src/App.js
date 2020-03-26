@@ -6,6 +6,8 @@ import GlobalStyle from './styles/GlobalStyle';
 import Header from './components/header/Header';
 import Main from './components/screens/Main';
 import Quiz from './components/screens/Quiz';
+import About from './components/screens/About';
+import Stats from './components/screens/Stats';
 
 const Container = styled.div`
   display: flex;
@@ -24,6 +26,8 @@ function App() {
         <Header />
         <Route exact path="/" render={() => <Main/>} />
         <Route path="/quiz" render={() => <Quiz/>} />
+        <Route path="/about" render={() => <About/>} />
+        <Route path="/stats" render={() => <Stats/>} />
       </Container>
     </Router>
   );
