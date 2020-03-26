@@ -20,6 +20,7 @@ const Container = styled.main`
 export default function Quiz() {
   const [questions, setQuestions] = useState([]);
   const [openModal, setOpenModal] = useState(false);
+  const [currentResult, setCurrentResult] = useState(false);
 
   useEffect(() => {
     axios.get('https://opentdb.com/api.php?amount=10&category=15')
@@ -34,6 +35,7 @@ export default function Quiz() {
     newResult.correctAnswers += res.length;
     newResult.incorrectAnswers += 10 - res.length;
 
+    setCurrentResult(res.length);
     updateLocalStorage(newResult);
     handleModal(true);
   }
@@ -50,7 +52,7 @@ export default function Quiz() {
   return (
     <Container isLoading={isLoading}>
       {isLoading ? <LoadingSpinner scale={1} /> : <QuizForm questions={questions} handleSubmit={handleSubmit}/>}
-      {openModal ? <ModalDialog handleModal={handleModal}/> : null}
+      {openModal ? <ModalDialog handleModal={handleModal} currentResult={currentResult}/> : null}
     </Container>
   )
 }

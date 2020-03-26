@@ -23,7 +23,7 @@ export default function QuizFormAnswers({ value, question, currentQuestion, onCh
               checked={value['Q' + currentQuestion] === he.decode(answer)}
               value={he.decode(answer)}
               id={`answer-${index + 1}`} 
-              name={`Q${currentQuestion}`} 
+              name={`Q${currentQuestion}`}
             />
             <label htmlFor={`answer-${index + 1}`}>
               {he.decode(answer)}

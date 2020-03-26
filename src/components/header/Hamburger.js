@@ -6,9 +6,12 @@ import ModalAsideMenu from '../modals/ModalAsideMenu';
 const Container = styled.div`
   margin-left: 0.75rem;
 
+  button {
+    cursor: pointer;
+  }
+
   i {
     color: hsla(0,0%,0%,0.8);
-    cursor: pointer;
   }
 `;
 

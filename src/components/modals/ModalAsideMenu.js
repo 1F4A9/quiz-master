@@ -55,14 +55,14 @@ export default function Hamburger({ handleModal }) {
         getApplicationNode={getApplicationNode}
       >
         <Container>
-          <Link to="/quiz">
-            <button onClick={deactivateModal} id="deactivate-aside" aria-label="open game screen">Game screen</button>
+          <Link to="/quiz" tabIndex="-1">
+            <button onClick={deactivateModal} value="/quiz" id="deactivate-aside" aria-label="open game screen">Game screen</button>
           </Link>
-          <Link to="/stats">
-            <button onClick={deactivateModal} aria-label="open stats screen">Stats</button>
+          <Link to="/stats" tabIndex="-1">
+            <button onClick={deactivateModal} value="/stats" aria-label="open stats screen">Stats</button>
           </Link>
-          <Link to="/about">
-            <button onClick={deactivateModal} aria-label="open about screen">About this game</button>
+          <Link to="/about" tabIndex="-1">
+            <button onClick={deactivateModal} value="/about" aria-label="open about screen">About this game</button>
           </Link>
         </Container>
       </AriaModal>
