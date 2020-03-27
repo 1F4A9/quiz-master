@@ -15,6 +15,31 @@ const Container = styled.main`
     width: 100%;
     height: 100%;
   }
+
+  a {
+    text-decoration: none;
+  }
+
+  button {
+    margin-top: 1.5rem;
+  
+    text-transform: uppercase;
+    letter-spacing: 0.05rem;
+    font-size: .875rem;
+    color: #6200ee;
+    cursor: pointer;
+    padding: 0.2rem 0.6rem;
+
+    display: block;
+
+    background-color: #fff;
+    border: 1px solid #6200ee;
+    border-radius: 4px;
+
+    :hover,
+    :focus {
+      background-color: rgba(98, 0, 238, 0.05);
+    }
 `;
 
 export default function Quiz() {

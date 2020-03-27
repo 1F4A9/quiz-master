@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 import styled from 'styled-components';
 
 import QuizForm from './QuizForm';
 import LoadingSpinner from '../shared/LoadingSpinner';
 import ModalDialog from '../modals/ModalDialog';
 import { updateLocalStorage, result$ } from '../observable/store';
+import { fetchQuestions } from '../api/'
 
 const Container = styled.main`
   display: flex;
@@ -23,10 +23,8 @@ export default function Quiz() {
   const [currentResult, setCurrentResult] = useState(false);
 
   useEffect(() => {
-    axios.get('https://opentdb.com/api.php?amount=10&category=15')
-      .then(blob => blob.data.results)
-      .then(questions => setQuestions(questions))
-      .catch(error => console.log(error));
+    fetchQuestions()
+      .then(questions => setQuestions(questions));
   }, [])
 
   function handleSubmit(res) {
@@ -44,6 +42,11 @@ export default function Quiz() {
     setOpenModal(boolean);
   }
 
+  function handleRestart() {
+    fetchQuestions()
+      .then(questions => setQuestions(questions));
+  }
+
   let isLoading = true;
   if (questions.length >= 1) {
     isLoading = false;
@@ -52,7 +55,7 @@ export default function Quiz() {
   return (
     <Container isLoading={isLoading}>
       {isLoading ? <LoadingSpinner scale={1} /> : <QuizForm questions={questions} handleSubmit={handleSubmit}/>}
-      {openModal ? <ModalDialog handleModal={handleModal} currentResult={currentResult}/> : null}
+      {openModal ? <ModalDialog handleModal={handleModal} currentResult={currentResult} handleRestart={handleRestart}/> : null}
     </Container>
   )
 }

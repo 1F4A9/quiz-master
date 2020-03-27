@@ -5,13 +5,17 @@ import styled from 'styled-components';
 import QuizFormAnswers from './QuizFormAnswers';
 
 const Container = styled.div`
+  max-width: 1080px;
+  height: 100%;
+  margin: 0 auto;
+
   .question {
     padding: 0rem 0.75rem;
     padding-bottom: 0.833rem;
   }
-  
-  .question {
-    // border-bottom: 1px solid black;
+
+  form > div {
+    border-bottom: 1px solid #e4e4e4;
   }
 
   p {
@@ -29,10 +33,9 @@ const Container = styled.div`
     font-size: .875rem;
     color: #6200ee;
     cursor: pointer;
-    margin-left: 0.75rem;
     padding: 0.2rem 0.6rem;
 
-    margin: 0 auto;
+    margin: 1.666rem auto 0rem auto;
     display: block;
 
     background-color: #fff;
@@ -55,6 +58,8 @@ export default function QuizForm({ questions, handleSubmit }) {
     let result = questions.filter((question, i) => he.decode(question.correct_answer) === value['Q' + (i + 1)]);
 
     handleSubmit(result);
+
+    setValue({})
   }
 
   function onChange(e) {
@@ -65,8 +70,8 @@ export default function QuizForm({ questions, handleSubmit }) {
     <Container>
       <form onSubmit={onSubmit}>
         {questions.map((question, index) => {
-          return <div className="question" key={index}>
-            <p tabIndex="0">
+          return <div className="question" key={index} tabIndex="0" role="textbox">
+            <p id="Q">
               {`Q${index + 1}. `}
               {he.decode(question.question)}
             </p>

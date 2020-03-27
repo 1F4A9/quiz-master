@@ -5,13 +5,13 @@ import { shuffle } from '../utilities';
 
 export default function QuizFormAnswers({ value, question, currentQuestion, onChange }) {
   const [answers, setAnswers] = useState([]);
-
+  
   useEffect(() => {
     const { incorrect_answers, correct_answer } = question;
-
+    
     setAnswers(shuffle([correct_answer, ...incorrect_answers]));
   }, [question])
-
+  
   return (
     <>
       {answers.map((answer, index) => {
@@ -22,10 +22,10 @@ export default function QuizFormAnswers({ value, question, currentQuestion, onCh
               onChange={onChange}
               checked={value['Q' + currentQuestion] === he.decode(answer)}
               value={he.decode(answer)}
-              id={`answer-${index + 1}`} 
+              id={he.decode(answer)} 
               name={`Q${currentQuestion}`}
             />
-            <label htmlFor={`answer-${index + 1}`}>
+            <label htmlFor={he.decode(answer)}>
               {he.decode(answer)}
             </label>
           </div>
@@ -33,4 +33,4 @@ export default function QuizFormAnswers({ value, question, currentQuestion, onCh
       })}
     </>
   )
-}
+} 

@@ -25,7 +25,7 @@ export default function Hamburger() {
   return (
     <Container>
       <button onClick={() => handleModal(true)} aria-label="open aside menu">
-        <i className="fas fa-bars"> </i>
+        <i className="fas fa-bars" aria-hidden="true"></i>  
       </button>
       {openModal ? <ModalAsideMenu handleModal={handleModal} /> : null}
     </Container>

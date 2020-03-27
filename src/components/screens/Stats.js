@@ -4,16 +4,13 @@ import styled from 'styled-components';
 import { result$ } from '../observable/store';
 
 const Container = styled.main`
+  max-width: 1080px;
   height: 100%;
-  width: 100%;
+  margin: 0 auto;
   padding: 0.75rem;
 
   display: flex;
   justify-content: center;
-
-  h1 {
-    text-align: center;
-  }
 
   h4 {
     text-transform: uppercase;
@@ -34,7 +31,7 @@ export default function Stats() {
 
   return (
     <Container>
-      <div className="flex-container">
+      <div className="flex-container" tabindex="0" role="textbox">
         <h4>Games played</h4>
         <p>{gamesPlayed}</p>
         <h4>Correct answers</h4>

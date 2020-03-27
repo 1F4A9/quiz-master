@@ -42,7 +42,7 @@ export default function Header() {
     <Container>
       <Hamburger/>
       <div className="flex-container">
-        <h2>{pathname}</h2>
+        <h2 role="heading" tabIndex="0">{pathname}</h2>
       </div>
     </Container>
   )

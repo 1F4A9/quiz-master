@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import AriaModal from 'react-aria-modal';
 
@@ -19,8 +20,8 @@ const Container = styled.div`
     justify-content: flex-start;
 
     padding: 0.75rem;
-    width: 300px;
-    height: 200px;
+    min-width: 300px;
+    min-height: 200px;
     border-radius: 4px;
     background-color: #fff;
   }
@@ -52,7 +53,7 @@ const Container = styled.div`
   }
 `;
 
-export default function ModalDialog({ handleModal, currentResult }) {
+export default function ModalDialog({ handleModal, handleRestart, currentResult }) {
   const [modalActive, setModalActive] = useState(false);
 
   useEffect(() => {
@@ -63,6 +64,12 @@ export default function ModalDialog({ handleModal, currentResult }) {
     setModalActive(false);
     handleModal(false);
   }
+
+  function onRestart() {
+    setModalActive(false);
+    handleModal(false);
+    handleRestart();
+  }
  
   function getApplicationNode() {
     return document.getElementById('modal-root');
@@ -71,20 +78,24 @@ export default function ModalDialog({ handleModal, currentResult }) {
   const modal = modalActive
     ? <AriaModal
         escapeExits={false}
-        titleText="game win dialog"
+        titleText="game ended"
+        focusDialog={true}
+        titleId='modal-title'
         onExit={deactivateModal}
-        initialFocus="#deactivate-module"
+        initialFocus="#focus"
         getApplicationNode={getApplicationNode}
       >
         <Container>
-          <div className="flex-container">
+          <div className="flex-container" tabIndex="0" role="textbox" id="focus">
             <main>
-              <h4>Congratulations!</h4>
+              <h4 id="modal-title">Congratulations!</h4>
               <p>You answered {currentResult}/10 questions correct!</p>
             </main>
-            <footer id="deactivate-module">
-              <button onClick={deactivateModal}>Re-start</button>
-              <button onClick={deactivateModal}>Close</button>
+            <footer>
+              <button onClick={onRestart}>Re-start</button>
+              <Link to="/" tabIndex="-1">
+                <button onClick={deactivateModal}>go-back-to-main</button>
+              </Link>
             </footer>
           </div>
         </Container>
