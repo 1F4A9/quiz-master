@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Helmet } from "react-helmet";
 import styled from 'styled-components';
 
 const Container = styled.main`
@@ -45,6 +46,9 @@ const Container = styled.main`
 export default function Quiz() {
   return (
     <Container>
+      <Helmet>
+        <title>Quiz Master</title>
+      </Helmet>
       <Link to='/quiz'>
         <button>
           START QUIZ

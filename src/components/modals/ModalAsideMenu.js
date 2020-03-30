@@ -31,28 +31,43 @@ const Container = styled.aside`
   animation-timing-function: ease-out;
 
   a {
-    text-decoration: none; 
+    text-decoration: none;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  i {
+    line-height: 0.6rem;
+    padding-right: 4px;
   }
 
   button {
-    margin-top: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 0rem .75rem;
   
     text-transform: uppercase;
     letter-spacing: 0.05rem;
     font-size: .875rem;
     color: #6200ee;
     cursor: pointer;
-    padding: 0.2rem 0.6rem;
-
-    display: block;
+    padding: 0.5rem 0.6rem;
 
     background-color: #fff;
-    border: 1px solid #6200ee;
+    border: none;
     border-radius: 4px;
+
+    transition: background-color 0.2s linear;
 
     :hover,
     :focus {
-      background-color: rgba(98, 0, 238, 0.05);
+      background-color: rgba(98, 0, 238, 0.15);
     }
 `;
 
@@ -83,13 +98,22 @@ export default function Hamburger({ handleModal }) {
       >
         <Container tabIndex="0" role="navigation" id="focus">
           <Link to="/quiz" tabIndex="-1">
-            <button onClick={deactivateModal} value="/quiz" id="nav" aria-label="open game screen">Game screen</button>
+            <button onClick={deactivateModal} value="/quiz" id="nav" aria-label="open game screen">
+              <i className="fas fa-gamepad"></i>
+              Game screen
+            </button>
           </Link>
           <Link to="/stats" tabIndex="-1">
-            <button onClick={deactivateModal} value="/stats" aria-label="open stats screen">Stats</button>
+            <button onClick={deactivateModal} value="/stats" aria-label="open stats screen">
+              <i className="fas fa-scroll"></i>
+              Stats
+            </button>
           </Link>
           <Link to="/about" tabIndex="-1">
-            <button onClick={deactivateModal} value="/about" aria-label="open about screen">About this game</button>
+            <button onClick={deactivateModal} value="/about" aria-label="open about screen">
+              <i className="far fa-address-card"></i>
+              About this game
+            </button>
           </Link>
         </Container>
       </AriaModal>

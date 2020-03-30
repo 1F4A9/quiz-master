@@ -8,10 +8,14 @@ const Container = styled.div`
 
   button {
     cursor: pointer;
+    background-color: transparent;
+    border: none;
+    line-height: 1.5rem;
   }
 
   i {
-    color: hsla(0,0%,0%,0.8);
+    color: #fff;
+    font-size: 1.5rem;
   }
 `;
 

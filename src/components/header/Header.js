@@ -10,6 +10,7 @@ const Container = styled.header`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  background-color: #6200ee;
 
   height: 50px;
   width: 100%;
@@ -26,6 +27,7 @@ const Container = styled.header`
 
   h2 {
     margin: 0rem 0rem 0rem -0.75rem;
+    color: #fff;
   }
 `;
 

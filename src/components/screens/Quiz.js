@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import { Helmet } from "react-helmet";
 
 import QuizForm from './QuizForm';
 import LoadingSpinner from '../shared/LoadingSpinner';
@@ -54,6 +55,9 @@ export default function Quiz() {
 
   return (
     <Container isLoading={isLoading}>
+      <Helmet>
+        <title>Quizzes</title>
+      </Helmet>
       {isLoading ? <LoadingSpinner scale={1} /> : <QuizForm questions={questions} handleSubmit={handleSubmit}/>}
       {openModal ? <ModalDialog handleModal={handleModal} currentResult={currentResult} handleRestart={handleRestart}/> : null}
     </Container>

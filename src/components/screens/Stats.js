@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import { Helmet } from "react-helmet";
 
 import { result$ } from '../observable/store';
 
@@ -31,7 +32,10 @@ export default function Stats() {
 
   return (
     <Container>
-      <div className="flex-container" tabindex="0" role="textbox">
+      <Helmet>
+        <title>Stats</title>
+      </Helmet>
+      <div className="flex-container" tabIndex="0" role="textbox">
         <h4>Games played</h4>
         <p>{gamesPlayed}</p>
         <h4>Correct answers</h4>
