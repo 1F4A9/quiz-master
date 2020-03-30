@@ -68,7 +68,7 @@ export default function QuizForm({ questions, handleSubmit }) {
 
   return (
     <Container>
-      <form onSubmit={onSubmit}>
+      <form onSubmit={onSubmit} aria-label="10 questions and a submit button">
         {questions.map((question, index) => {
           return <div className="question" key={index} tabIndex="0" role="textbox">
             <p id="Q">
