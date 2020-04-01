@@ -4,25 +4,21 @@ import { Helmet } from "react-helmet";
 import styled from 'styled-components';
 
 const Container = styled.main`
-  height: 40px;
-  width: 120px;
-  position: absolute;
-  left: 50%;
-  margin-left: -60px;
-  top: 50%;
-  margin-top: -20px;
+  max-width: 1080px;
+  height: 95vh;
+  margin: 0 auto;
+  padding: 0.75rem;
 
-  button {
-    width: 100%;
-    height: 100%;
-  }
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   a {
     text-decoration: none;
   }
 
   button {
-    margin-top: 1.5rem;
+    margin: 0 auto;
   
     text-transform: uppercase;
     letter-spacing: 0.05rem;

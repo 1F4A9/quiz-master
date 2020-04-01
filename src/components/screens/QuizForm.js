@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import he from 'he';
 import styled from 'styled-components';
 
@@ -51,6 +51,7 @@ const Container = styled.div`
 
 export default function QuizForm({ questions, handleSubmit }) {
   const [value, setValue] = useState({});
+  const initialFocus = useRef(null)
 
   function onSubmit(e) {
     e.preventDefault();
@@ -58,6 +59,8 @@ export default function QuizForm({ questions, handleSubmit }) {
     let result = questions.filter((question, i) => he.decode(question.correct_answer) === value['Q' + (i + 1)]);
 
     handleSubmit(result);
+
+    initialFocus.current.firstChild.focus();
 
     setValue({})
   }
@@ -68,7 +71,7 @@ export default function QuizForm({ questions, handleSubmit }) {
 
   return (
     <Container>
-      <form onSubmit={onSubmit} aria-label="10 questions and a submit button">
+      <form onSubmit={onSubmit} aria-label="10 questions and a submit button" ref={initialFocus}>
         {questions.map((question, index) => {
           return <div className="question" key={index} tabIndex="0" role="textbox">
             <p id="Q">
