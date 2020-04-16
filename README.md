@@ -1,68 +1,54 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Running
+Clone repository.
+Run npm install.
+Run npm start.
+Go to http://localhost:3000.
 
-In the project directory, you can run:
+## Assignment instructions
+In this assignment you will create a quiz application using the Open Trivia DB, a database of trivia question with an accompanying API that can be used to generate random quiz questions.<br/>
 
-### `npm start`
+A prototype is avaliable on: https://projects.invisionapp.com/share/R7QA2LBTVMB#/screens <br/>
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+The URL to the API with documentation is: https://opentdb.com/api_config.php<br/>
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+## Requirements
+The following should be implemented
+<ul>
+  <li>Main screen</li>
+    <ul>
+      <li>The main screen should contain a button that is used to start the quiz. When the button is pressed a set of trivia questions are fetched from the API and the user is shown the Quiz screen.</li>
+    </ul>
+  <li>Quiz screen</li>
+    <ul>
+      <li>The quiz screen should display the questions with the possible answers as a set of radio buttons. 10 questions should be displayed.</li>
+    </ul>
+  <li>Modal dialog when the quiz is finished</li>
+    <ul>
+      <li>A modal dialog is a dialog that blocks all other interactions on a page and forces the user to interact with the dialog before continuing using the application</li>
+      <li>The dialog should display the score and ask if the user wants to try again or go back to the main screen.</li>
+      <li>When the dialog is visible, it should not be possible to interact with the background.</li>
+    </ul>
+  <li>Drawer menu</li>
+    <ul>
+      <li>A drawer menu is a navigation menu that slides in from either the left or right when pressing a button.</li>
+    </ul>
+  <li>Stats screen</li>
+    <ul>
+      <li>The application should record statistics and display them on the stats screen.</li>
+    </ul>
+  <li>About screen</li>
+    <ul>
+      <li>The about screen shows some information about the application.</li>
+    </ul>
+</ul>
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+## Accessibility requirements
+The following is required
+<ul>
+  <li>The text is legible on small screens and in bad conditions</li>
+  <li>The contrast between foreground (text) and the background should not be too low</li>
+  <li>It should be possible to use the application with a screen reader</li>
+  <li>Both the drawer menu and the modal dialog should be made accessible</li>
+</ul>
